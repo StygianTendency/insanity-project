@@ -19,7 +19,6 @@ public class RogueMovementScript : MonoBehaviour
     public TextMeshProUGUI interactText;
     //Flag to indicate if the character is near a chest
     private bool isNearChest = false;
-    private bool wasMoving = false;
 
     //Called when the script is first initialized
     private void Awake(){
@@ -53,6 +52,10 @@ public class RogueMovementScript : MonoBehaviour
         //Check if "E" is pressed and character is near a chest
         if(Input.GetKeyDown(KeyCode.E) && isNearChest){
             Debug.Log("Opening chest");
+        } else if (Input.GetKeyDown(KeyCode.E)){      
+            animator.SetTrigger("isAttack1");
+        } else if (Input.GetKeyDown(KeyCode.Q)){
+            animator.SetTrigger("isAttack2");
         }
 
         //Update position of [E] interact text if character is near chest
@@ -97,7 +100,7 @@ public class RogueMovementScript : MonoBehaviour
     }
 
     //Called when a collision occurs
-    private void OnCollisionEnter2D(Collision2D collision){
+    private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Chest")){
             isNearChest = true;
             ShowInteractMessage(true);
@@ -105,7 +108,7 @@ public class RogueMovementScript : MonoBehaviour
     }
 
     //Called when collision with an game object ends. In this case I only had a chest game object.
-    private void OnCollisionExit2D(Collision2D collision){
+    private void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Chest")){
             isNearChest = false;
             ShowInteractMessage(false);
