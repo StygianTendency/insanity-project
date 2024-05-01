@@ -13,16 +13,20 @@ public class RogueMovementScript : MonoBehaviour
     private RogueInputs rogueMovement;
     private Vector2 movement;
     private Rigidbody2D rb;
+    private Animator animator;
 
     //UI Text for [E] interact message
     public TextMeshProUGUI interactText;
     //Flag to indicate if the character is near a chest
     private bool isNearChest = false;
 
+    private bool isAttacking = false;
+
     //Called when the script is first initialized
     private void Awake(){
         rogueMovement = new RogueInputs();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable(){
@@ -50,6 +54,11 @@ public class RogueMovementScript : MonoBehaviour
         //Check if "E" is pressed and character is near a chest
         if(Input.GetKeyDown(KeyCode.E) && isNearChest){
             Debug.Log("Opening chest");
+        } else if (Input.GetMouseButtonDown(0) && !isAttacking){  // Check if left mouse button is clicked and no attack animation is currently playing    
+            animator.SetTrigger("isAttack1");
+            isAttacking = true;
+        } else if (Input.GetKeyDown(KeyCode.Q)){
+            animator.SetTrigger("isAttack2");
         }
 
         //Update position of [E] interact text if character is near chest
@@ -58,27 +67,49 @@ public class RogueMovementScript : MonoBehaviour
             Vector3 textInteractPosition = roguePosition + new Vector3(0, -80.0f, 0);
             interactText.transform.position = textInteractPosition;
         }
+
+        bool isMoving = Mathf.Abs(movement.x) > 0.1f || Mathf.Abs(movement.y) > 0.1f;
+
+        // Update the animator parameters based on movement
+        animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isNotMoving", !isMoving);
+
+        if (movement.x < 0) // Moving left
+        {
+            transform.localScale = new Vector3(-2, 2, 0); // Flip horizontally
+        }
+        else if (movement.x > 0) // Moving right
+        {
+            transform.localScale = new Vector3(2, 2, 0); // Normal scale
+        }
+
+    }
+
+    private void EndAttackAnimation()
+    {
+        isAttacking = false; // Reset the flag when the attack animation is finished
+        Debug.Log("Attack animation ended. isAttacking set to false.");
     }
 
     private void FixedUpdate(){
         rogueMove();
+
     }
 
     //Read movement input from controls
     private void rogueInput(){
-        Vector2 movementInput = rogueMovement.Move.@Movement.ReadValue<Vector2>();
-        
-        movement = new Vector2(movementInput.x, movementInput.y);
-
+        movement = rogueMovement.Move.Movement.ReadValue<Vector2>();
     }
 
     //Move character based on input
     private void rogueMove(){
-        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        // rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+
+        rb.velocity = movement * moveSpeed;
     }
 
     //Called when a collision occurs
-    private void OnCollisionEnter2D(Collision2D collision){
+    private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Chest")){
             isNearChest = true;
             ShowInteractMessage(true);
@@ -86,7 +117,7 @@ public class RogueMovementScript : MonoBehaviour
     }
 
     //Called when collision with an game object ends. In this case I only had a chest game object.
-    private void OnCollisionExit2D(Collision2D collision){
+    private void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Chest")){
             isNearChest = false;
             ShowInteractMessage(false);
