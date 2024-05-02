@@ -30,8 +30,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private void Awake() {
-        rogueMovement = new RogueInputs();
-        rb = GetComponent<Rigidbody2D>();
+        
         animator = GetComponent<Animator>();
     }
 }

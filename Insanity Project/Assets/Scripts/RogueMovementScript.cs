@@ -58,7 +58,7 @@ public class RogueMovementScript : MonoBehaviour
         //Check if "E" is pressed and character is near a chest
         if(Input.GetKeyDown(KeyCode.E) && isNearChest){
             Debug.Log("Opening chest");
-
+        }
         //Update position of [E] interact text if character is near chest
         if(isNearChest && interactText.enabled){
             Vector3 roguePosition = Camera.main.WorldToScreenPoint(transform.position);
