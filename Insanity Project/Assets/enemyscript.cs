@@ -20,7 +20,7 @@ public class enemyscript : MonoBehaviour
         if(!target){
             GetTarget();
         }else{
-            //RotateTowardsTarget();
+            RotateTowardsTarget();
         }
         //rotate to target
 
