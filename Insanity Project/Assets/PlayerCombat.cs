@@ -5,7 +5,15 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     private bool isAttacking = false;
+    private Rigidbody2D rb;
     private Animator animator;
+
+    public float rollSpeed = 20f;
+    public float rollDuration = 1f;
+    private float rollTimer = 0f;
+    private bool isRolling = false;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -14,13 +22,22 @@ public class PlayerCombat : MonoBehaviour
             Attack();
         } else if (Input.GetKeyDown(KeyCode.Q)){
             animator.SetTrigger("isAttack2");
+        } else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling){
+            animator.SetTrigger("isRoll");
+            isRolling = true;
         }
+    }
+
+    private void FixedUpdate(){
+        if(isRolling){
+            HandleRoll();
+        }
+
     }
 
     void Attack() {
         animator.SetTrigger("isAttack1");
         isAttacking = true;
-
     }
 
      private void EndAttackAnimation()
@@ -30,7 +47,35 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private void Awake() {
-        
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
+    
+
+    private void HandleRoll(){
+    // Determine the roll direction based on the character's facing direction
+    Vector2 rollDirection = transform.right; // Roll to the right by default
+
+    // Check if the character is facing left, then roll to the left
+    if (transform.localScale.x < 0)
+    {
+        rollDirection = -transform.right;
+    }
+
+    // Calculate the forward movement based on the roll direction
+    Vector2 forwardMovement = rollDirection * rollSpeed * Time.deltaTime;
+
+    // Move the player forward slightly
+    transform.position += (Vector3)forwardMovement + Vector3.up * rb.velocity.y;
+
+    rollTimer += Time.deltaTime;
+
+    }
+
+    private void EndRollAnimation(){
+        isRolling = false;
+        rollTimer = 0f; // Reset roll timer
+    }
+
+
 }
