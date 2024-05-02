@@ -9,6 +9,9 @@ public class RogueMovementScript : MonoBehaviour
 {
     //Movement Speed of the character
     private float moveSpeed = 5f;
+    public float rollSpeed = 0.1f;
+    public float rollDuration = 0.2f;
+    private float rollTimer = 0f;
     //Input actiosn for character movement
     private RogueInputs rogueMovement;
     private Vector2 movement;
@@ -21,6 +24,7 @@ public class RogueMovementScript : MonoBehaviour
     private bool isNearChest = false;
 
     private bool isAttacking = false;
+    private bool isRolling = false;
 
     //Called when the script is first initialized
     private void Awake(){
@@ -59,6 +63,9 @@ public class RogueMovementScript : MonoBehaviour
             isAttacking = true;
         } else if (Input.GetKeyDown(KeyCode.Q)){
             animator.SetTrigger("isAttack2");
+        } else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling){
+            animator.SetTrigger("isRoll");
+            isRolling = true;
         }
 
         //Update position of [E] interact text if character is near chest
@@ -91,8 +98,37 @@ public class RogueMovementScript : MonoBehaviour
         Debug.Log("Attack animation ended. isAttacking set to false.");
     }
 
+    private void EndRollAnimation(){
+        isRolling = false;
+        rollTimer = 0f; // Reset roll timer
+    }
+
+    private void HandleRoll(){
+        // Determine the roll direction based on the character's facing direction
+        Vector2 rollDirection = transform.right; // Roll to the right by default
+
+        // Check if the character is facing left, then roll to the left
+        if (transform.localScale.x < 0)
+        {
+            rollDirection = -transform.right;
+        }
+        transform.position += (Vector3)rollDirection * rollSpeed * Time.deltaTime;
+
+        rollTimer += Time.deltaTime;
+
+        // Check if the roll duration has been reached
+        if (rollTimer >= rollDuration)
+        {
+            EndRollAnimation(); // Call method to end roll animation
+        }
+
+    }
+
     private void FixedUpdate(){
         rogueMove();
+        if(isRolling){
+            HandleRoll();
+        }
 
     }
 
