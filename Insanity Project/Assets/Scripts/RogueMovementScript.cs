@@ -54,12 +54,7 @@ public class RogueMovementScript : MonoBehaviour
         //Check if "E" is pressed and character is near a chest
         if(Input.GetKeyDown(KeyCode.E) && isNearChest){
             Debug.Log("Opening chest");
-        } else if (Input.GetMouseButtonDown(0) && !isAttacking){  // Check if left mouse button is clicked and no attack animation is currently playing    
-            animator.SetTrigger("isAttack1");
-            isAttacking = true;
-        } else if (Input.GetKeyDown(KeyCode.Q)){
-            animator.SetTrigger("isAttack2");
-        }
+        } 
 
         //Update position of [E] interact text if character is near chest
         if(isNearChest && interactText.enabled){
@@ -85,11 +80,7 @@ public class RogueMovementScript : MonoBehaviour
 
     }
 
-    private void EndAttackAnimation()
-    {
-        isAttacking = false; // Reset the flag when the attack animation is finished
-        Debug.Log("Attack animation ended. isAttacking set to false.");
-    }
+    
 
     private void FixedUpdate(){
         rogueMove();
