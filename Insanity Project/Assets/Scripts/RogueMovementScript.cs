@@ -91,6 +91,10 @@ public class RogueMovementScript : MonoBehaviour
             isNearChest = false;
             ShowInteractMessage(false);
         }
+        if (collision.tag == "Enemy") {
+           // other.GetComponent<Enemy.().TakeDamage(damage);
+           Debug.Log("Enemy hit");
+        }
     }
     
     //Show or hide [E] interact message based on parameter
@@ -99,4 +103,6 @@ public class RogueMovementScript : MonoBehaviour
             interactText.enabled = show;
         }
     }
+
+    
 }
