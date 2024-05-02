@@ -20,13 +20,14 @@ public class enemyscript : MonoBehaviour
         if(!target){
             GetTarget();
         }else{
-            RotateTowardsTarget();
+            //RotateTowardsTarget();
         }
         //rotate to target
 
     }
     private void FixedUpdate(){
         //move forward
+        rb.velocity = transform.up * speed;
     }
     private void RotateTowardsTarget(){
         Vector2 targetDirection = target.position - transform.position;
@@ -35,6 +36,8 @@ public class enemyscript : MonoBehaviour
         transform.localRotation = Quaternion.Slerp(transform.localRotation,q, rotateSpeed);
     }
     private void GetTarget(){
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if(GameObject.FindGameObjectWithTag("Player")){
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 }
