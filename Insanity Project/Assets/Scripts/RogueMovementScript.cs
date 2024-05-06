@@ -9,8 +9,6 @@ public class RogueMovementScript : MonoBehaviour
 {
     //Movement Speed of the character
     private float moveSpeed = 5f;
-    public float rollSpeed = 2f;
-    public float rollDuration = 0.5f;
 
     //Input actiosn for character movement
     private RogueInputs rogueMovement;

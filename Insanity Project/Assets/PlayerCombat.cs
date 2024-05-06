@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
-    public float rollSpeed = 20f;
+    public float rollSpeed = 10f;
     public float rollDuration = 1f;
     private float rollTimer = 0f;
     private bool isRolling = false;
@@ -64,11 +64,15 @@ public class PlayerCombat : MonoBehaviour
 
     // Calculate the forward movement based on the roll direction
     Vector2 forwardMovement = rollDirection * rollSpeed * Time.deltaTime;
+    forwardMovement.y = rb.velocity.y;
 
     // Move the player forward slightly
     transform.position += (Vector3)forwardMovement + Vector3.up * rb.velocity.y;
 
     rollTimer += Time.deltaTime;
+
+    Debug.Log("ForwardMovement : " + forwardMovement);
+    Debug.Log("RollTimer : " + rollTimer);
 
     }
 
