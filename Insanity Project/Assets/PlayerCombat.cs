@@ -8,11 +8,17 @@ public class PlayerCombat : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
-    public float rollSpeed = 10f;
+    public float rollSpeed = 4f;
     public float rollDuration = 1f;
     private float rollTimer = 0f;
+    // public float verticalMovement = 4;
     private bool isRolling = false;
+    
+    public HealthBar healthBar;
 
+    void Start(){
+        healthBar = FindObjectOfType<HealthBar>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,6 +29,9 @@ public class PlayerCombat : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Q)){
             animator.SetTrigger("isAttack2");
         } else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling){
+            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
+                return;
+            }
             animator.SetTrigger("isRoll");
             isRolling = true;
         }
@@ -64,7 +73,6 @@ public class PlayerCombat : MonoBehaviour
 
     // Calculate the forward movement based on the roll direction
     Vector2 forwardMovement = rollDirection * rollSpeed * Time.deltaTime;
-    forwardMovement.y = rb.velocity.y;
 
     // Move the player forward slightly
     transform.position += (Vector3)forwardMovement + Vector3.up * rb.velocity.y;
