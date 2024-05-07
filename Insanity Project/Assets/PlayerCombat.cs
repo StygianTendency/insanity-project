@@ -23,9 +23,6 @@ public class PlayerCombat : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Q)){
             animator.SetTrigger("isAttack2");
         } else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling){
-            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
-                return;
-            }
             animator.SetTrigger("isRoll");
             isRolling = true;
         }
