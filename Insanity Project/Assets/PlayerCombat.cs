@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
     public float rollDuration = 1f;
     private float rollTimer = 0f;
     // public float verticalMovement = 4;
-    private bool isRolling = false;
+    public bool isRolling = false;
 
     // Update is called once per frame
     void Update()

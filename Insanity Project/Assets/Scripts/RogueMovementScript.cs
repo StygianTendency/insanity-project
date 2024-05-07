@@ -91,6 +91,10 @@ public class RogueMovementScript : MonoBehaviour
     private void rogueMove(){
         // rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
 
+        if(GetComponent<PlayerCombat>().isRolling){
+            GetComponent<PlayerCombat>().isRolling = false;
+        }
+
         rb.velocity = movement * moveSpeed;
     }
 
