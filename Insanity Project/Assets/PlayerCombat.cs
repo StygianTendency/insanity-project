@@ -13,12 +13,6 @@ public class PlayerCombat : MonoBehaviour
     private float rollTimer = 0f;
     // public float verticalMovement = 4;
     private bool isRolling = false;
-    
-    public HealthBar healthBar;
-
-    void Start(){
-        healthBar = FindObjectOfType<HealthBar>();
-    }
 
     // Update is called once per frame
     void Update()

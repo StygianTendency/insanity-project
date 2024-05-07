@@ -488,6 +488,8 @@ MonoBehaviour:
   rotateSpeed: 0.0025
   target: {fileID: 0}
   speed: 3
+  attackDistance: 1.5
+  animator: {fileID: 0}
 --- !u!95 &364413232
 Animator:
   serializedVersion: 5
@@ -4995,8 +4997,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0.0025
-  target: {fileID: 0}
+  target: {fileID: 881896532}
   speed: 3
+  attackDistance: 1.5
+  animator: {fileID: 543872931}
 --- !u!1 &881896529
 GameObject:
   m_ObjectHideFlags: 0
@@ -5060,7 +5064,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 698392041
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 44668337, guid: 66351b97acf63204dbd09fce104d4fa8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5207,7 +5211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rollSpeed: 4
   rollDuration: 1
-  healthBar: {fileID: 0}
 --- !u!114 &881896538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5363,6 +5366,8 @@ MonoBehaviour:
   rotateSpeed: 0.0025
   target: {fileID: 0}
   speed: 3
+  attackDistance: 1.5
+  animator: {fileID: 0}
 --- !u!95 &1069762134
 Animator:
   serializedVersion: 5
@@ -5658,7 +5663,7 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefab:
   - {fileID: 543872930}
-  canSpawn: 1
+  canSpawn: 0
   numOfSpawn: 0
 --- !u!1 &1406570621
 GameObject:
@@ -5696,6 +5701,8 @@ MonoBehaviour:
   rotateSpeed: 0.0025
   target: {fileID: 0}
   speed: 3
+  attackDistance: 1.5
+  animator: {fileID: 0}
 --- !u!95 &1406570623
 Animator:
   serializedVersion: 5
@@ -5892,6 +5899,8 @@ MonoBehaviour:
   rotateSpeed: 0.0025
   target: {fileID: 0}
   speed: 3
+  attackDistance: 1.5
+  animator: {fileID: 0}
 --- !u!95 &1434939058
 Animator:
   serializedVersion: 5
