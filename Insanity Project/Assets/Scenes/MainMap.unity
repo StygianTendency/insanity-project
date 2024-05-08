@@ -83782,15 +83782,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e6f2c6a53186a44a24a7804104025f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
   enemyPrefab:
-  - {fileID: 1094389785834920419, guid: 6f72a96ef4d4e0c409739121dff4c125, type: 3}
   - {fileID: 6748607930218245229, guid: a5e70ad015e8f794ba7e2a361943e314, type: 3}
   - {fileID: 173868453859562134, guid: ddbd747efff412840948063c9ba2986f, type: 3}
+  - {fileID: 1094389785834920419, guid: 6f72a96ef4d4e0c409739121dff4c125, type: 3}
   - {fileID: 3876519807641451629, guid: 796073b187a8db64f9d7dea830d9899c, type: 3}
   - {fileID: 5543256516272518667, guid: 89e117b34d703cb4ba556be6eaf5e1df, type: 3}
-  canSpawn: 1
-  numOfSpawn: 0
+  spawnPoint: {fileID: 0}
+  maxWaves: 12
+  initialSpawnCount: 1
 --- !u!1 &1378088190
 GameObject:
   m_ObjectHideFlags: 0
