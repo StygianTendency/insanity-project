@@ -15,7 +15,7 @@ public class enemyscript : MonoBehaviour
     public Animator animator;
     public BoxCollider2D colliderBox; // Reference to the BoxCollider2D component
     private Vector2 originalColliderSize; 
-    private float colliderOriginalXOffset; // Original X offset of the collider
+    private float originalXOffset; // Original X offset of the collider
 
 
     private Rigidbody2D rb;
@@ -27,7 +27,7 @@ public class enemyscript : MonoBehaviour
         colliderBox = GetComponent<BoxCollider2D>(); // Get the BoxCollider2D component
         GetTarget();
         originalColliderSize = colliderBox.size; // Store the original size of the collider
-        colliderOriginalXOffset = colliderBox.offset.x; // Store the original X offset of the collider
+        originalXOffset = colliderBox.offset.x; // Store the original X offset of the collider
     }
 
     private void Update(){
@@ -75,7 +75,7 @@ public class enemyscript : MonoBehaviour
     // Method to reset collider box position to its original state
     private void ResetColliderBoxPosition(){
         if (colliderBox != null){
-            colliderBox.offset = new Vector2(colliderOriginalXOffset, colliderBox.offset.y);
+            colliderBox.offset = new Vector2(originalXOffset, colliderBox.offset.y);
         }
     }
     
