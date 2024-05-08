@@ -13,6 +13,9 @@ public class enemyscript : MonoBehaviour
     public float speed = 3f;
     public float attackDistance = .7f;
     public Animator animator;
+    public BoxCollider2D colliderBox; // Reference to the BoxCollider2D component
+    private Vector2 originalColliderSize; 
+    private float colliderOriginalXOffset; // Original X offset of the collider
 
 
     private Rigidbody2D rb;
@@ -20,8 +23,11 @@ public class enemyscript : MonoBehaviour
 
     private void Start(){
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();        
+        colliderBox = GetComponent<BoxCollider2D>(); // Get the BoxCollider2D component
         GetTarget();
+        originalColliderSize = colliderBox.size; // Store the original size of the collider
+        colliderOriginalXOffset = colliderBox.offset.x; // Store the original X offset of the collider
     }
 
     private void Update(){
@@ -48,10 +54,28 @@ public class enemyscript : MonoBehaviour
         float positionTolerance = 0.1f;
         if(target.position.x < transform.position.x - positionTolerance){
             spriteRenderer.flipX = true;
+            AdjustColliderBox(true);
         } else if (target.position.x > transform.position.x + positionTolerance){
             spriteRenderer.flipX = false;
+            AdjustColliderBox(false);
         } else {
+            ResetColliderBoxPosition();
+        }
 
+    }
+
+    private void AdjustColliderBox(bool facingLeft){
+        if (colliderBox != null){
+            // Adjust offset based on facing direction
+            float xOffset = facingLeft ? -originalXOffset : originalXOffset;
+            colliderBox.offset = new Vector2(xOffset, colliderBox.offset.y);
+        }
+    }
+
+    // Method to reset collider box position to its original state
+    private void ResetColliderBoxPosition(){
+        if (colliderBox != null){
+            colliderBox.offset = new Vector2(colliderOriginalXOffset, colliderBox.offset.y);
         }
     }
     
