@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using Cinemachine;
+using System.Collections;
 
 public class PromptManager : MonoBehaviour
 {
@@ -8,9 +10,11 @@ public class PromptManager : MonoBehaviour
     public float promptIntervalMax = 60f;
     public string promptMessage = "Do you accept my gift?";
     public float maxHPDecrease = 10f;
-    public float screenShakeIntensity = 0.5f;
 
     private bool isPromptActive = false;
+
+    // Reference to the Cinemachine Virtual Camera named "PlayerView"
+    public CinemachineVirtualCamera playerViewCamera;
 
     void Start()
     {
@@ -43,44 +47,43 @@ public class PromptManager : MonoBehaviour
 
     void AcceptGift()
     {
-        // Decrease player's max HP and apply screen shake
-        // For demonstration purposes, let's just log the action
-        Debug.Log("Player accepted the gift!");
-        
-        // Apply effects
-        // For demonstration purposes, let's just decrease max HP
-        // and apply screen shake
-        DecreaseMaxHP();
-        ApplyScreenShake();
-        
+        // Decrease player's max HP
+        // Apply other effects as needed
         // Reset prompt
         isPromptActive = false;
         promptText.text = "";
+
+        // Trigger screen shake
+        StartCoroutine(TriggerScreenShake());
     }
 
     void DeclineGift()
     {
         // Apply alternative effects for declining the gift
-        // For demonstration purposes, let's just log the action
-        Debug.Log("Player declined the gift!");
-
         // Reset prompt
         isPromptActive = false;
         promptText.text = "";
     }
 
-    void DecreaseMaxHP()
+    IEnumerator TriggerScreenShake()
     {
-        // Apply decrease to player's max HP
-        // For demonstration purposes, let's just decrease max HP
-        // by the specified amount
-        // You should implement your own logic here
-    }
+        if (playerViewCamera != null)
+        {
+            // Get the noise profile from the Cinemachine Virtual Camera
+            CinemachineBasicMultiChannelPerlin noiseProfile = playerViewCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-    void ApplyScreenShake()
-    {
-        // Apply screen shake effect
-        // For demonstration purposes, let's just log the action
-       
+            // Enable the noise profile
+            noiseProfile.m_AmplitudeGain = 1f;
+
+            // Wait for a short duration
+            yield return new WaitForSeconds(0.5f);
+
+            // Disable the noise profile after the shake
+            noiseProfile.m_AmplitudeGain = 0f;
+        }
+        else
+        {
+            Debug.LogError("PlayerView Camera is not assigned!");
+        }
     }
 }
