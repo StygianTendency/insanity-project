@@ -199,6 +199,7 @@ MonoBehaviour:
   speed: 3
   attackDistance: 0.3
   animator: {fileID: 3675233025643969758}
+  colliderBox: {fileID: 0}
 --- !u!114 &4128686744290180419
 MonoBehaviour:
   m_ObjectHideFlags: 0
