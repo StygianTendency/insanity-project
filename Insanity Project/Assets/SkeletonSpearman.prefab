@@ -197,4 +197,4 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 3
   attackDistance: 1.5
-  animator: {fileID: 0}
+  animator: {fileID: 4851686055222254733}
