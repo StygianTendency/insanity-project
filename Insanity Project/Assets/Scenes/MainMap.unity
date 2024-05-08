@@ -83123,6 +83123,140 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &741469148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741469151}
+  - component: {fileID: 741469150}
+  - component: {fileID: 741469149}
+  m_Layer: 5
+  m_Name: Insanity Prompt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &741469149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741469148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &741469150
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741469148}
+  m_CullTransparentMesh: 1
+--- !u!224 &741469151
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741469148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 957866489}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &881896529
 GameObject:
   m_ObjectHideFlags: 0
@@ -83362,6 +83496,7 @@ GameObject:
   - component: {fileID: 957866488}
   - component: {fileID: 957866487}
   - component: {fileID: 957866486}
+  - component: {fileID: 957866490}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -83448,6 +83583,7 @@ RectTransform:
   - {fileID: 153385500}
   - {fileID: 1574996356}
   - {fileID: 2117528866}
+  - {fileID: 741469151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -83455,6 +83591,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &957866490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957866485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8883dc42555da549a583adbbae58bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: {fileID: 741469149}
+  promptIntervalMin: 10
+  promptIntervalMax: 15
+  promptMessage: "D\u0335\u034B\u0312\u0354\u0354\u033B\u0322\u032B\u032F\u0339\u032A\u0349\u031D\u0320\u033A\u031D\u0325\u035C\u0355o\u0338\u0350\u0344\u0343\u030C\u033F\u0305\u0360\u0309\u0307\u035D\u0313\u0306\u0307\u0305\u030D\u0306\u0351\u0325\u0327\u0339\u0353\u0356
+    \u0338\u0307\u035D\u0309\u031B\u0352\u0311\u0358\u0314\u0352\u0328\u0326\u0325\u033C\u0354\u0345\u034Ey\u0336\u0357\u035B\u0310\u0313\u0344\u033F\u0351\u0344\u035D\u0309\u030A\u030B\u0327\u032C\u0354\u0318\u0354\u0330\u0356\u0339\u0356\u0325\u0349\u0359o\u0334\u0357\u030E\u030E\u0352\u0306\u0308\u0346\u0312\u0308\u030A\u0305\u0305\u031B\u0311\u0353\u0324\u0356\u031C\u0325u\u0338\u0305\u0312\u031A\u035B\u034C\u034C\u030C\u035D\u034C\u0358\u0346\u0331\u0324\u0316\u031C\u0339\u0354\u0321\u032F\u031F\u0354\u033A\u032F\u0355\u0354\u0324\u0321
+    \u0337\u0301\u0344\u0357\u0309\u0303\u0310\u031B\u0308\u0357\u0307\u0328\u0325\u0354\u031E\u0329\u0329a\u0335\u030F\u031B\u033E\u0358\u0310\u0302\u0303\u035D\u0311\u0325\u0330\u031F\u032E\u0328\u035A\u031C\u033B\u0333c\u0337\u034C\u0342\u031B\u0311\u033F\u0312\u0347\u0320\u0347\u033A\u0326\u0347\u033A\u0339\u032D\u032E\u0317\u033C\u0325\u033C\u032Dc\u0338\u033F\u0315\u0307\u0315\u0311\u0352\u0312\u0304\u0312\u0312\u0343\u030C\u034A\u0346\u035B\u0328\u0328\u0328\u032C\u0347\u033B\u0353\u035A\u034D\u0356\u0324\u0324\u0324\u031E\u0345e\u0335\u0342\u0302\u0303\u0303\u0352\u0348\u0329p\u0337\u031B\u0313\u0304\u033E\u033F\u0314\u031F\u034E\u0339\u0328\u0359\u033C\u032E\u0347\u0349\u033B\u031C\u033A\u035C\u033C\u0326\u032F\u032Dt\u0335\u0303\u035B\u0360\u030B\u0308\u0358\u035B\u0312\u032E\u031E\u0355\u033A\u0332\u032F\u0331\u033B
+    \u0337\u033E\u035D\u0360\u0340\u0315\u0306\u0342\u0300\u0302\u0341\u035D\u035D\u0307\u033A\u0331\u0324\u0329\u0316\u0330\u035C\u031F\u0353\u032CH\u0338\u030D\u030A\u0351\u030B\u0355\u032A\u0322\u031F\u0332\u0348\u033B\u031Fi\u0334\u0350\u031A\u0302\u030B\u030E\u035B\u0352\u0358\u0315\u0346\u031A\u0357\u0333\u031D\u032E\u0322\u0330\u034D\u034E\u0316s\u0336\u0306\u0352\u0344\u0351\u0324\u0317\u035C\u035A\u0317\u0328\u033C\u032A\u032B\u0324\u0331\u031E\u0329\u0332\u0316
+    \u0337\u0306\u035D\u0305\u030A\u0314\u035D\u035B\u0341\u035B\u0346\u0344\u0314\u0331g\u0337\u0344\u0342\u035D\u0341\u030F\u0346\u0312\u0352\u0301\u0307\u030E\u0303\u0344\u034D\u0329\u0349\u035Ai\u0336\u0303\u0312\u0352\u0302\u0309\u0307\u0310\u031A\u0308\u0344\u0341\u031A\u0322\u0330\u032C\u035A\u0324\u0353\u0319\u0347\u0330\u032A\u0329\u0326\u0316\u0329\u0332\u0318\u0353f\u0335\u0357\u0331\u031D\u0349\u0355\u034E\u0316\u0326\u0321\u032D\u0333\u033B\u0316\u0320\u0356\u034D\u0322\u032At\u0335\u030A\u0324\u0355\u0359\u0354\u0323\u0332\u0347?\u0335\u034C\u034C\u030D\u031A\u0303\u0351\u035D\u034C\u033A\u0333\u031C\u032A\u0347\u034E\u0353\u0320"
+  maxHPDecrease: 10
+  screenShakeIntensity: 0.5
 --- !u!1 &1204395553
 GameObject:
   m_ObjectHideFlags: 3
