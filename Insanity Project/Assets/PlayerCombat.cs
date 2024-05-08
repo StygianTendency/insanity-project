@@ -7,9 +7,11 @@ public class PlayerCombat : MonoBehaviour
     private bool isAttacking = false;
     private Rigidbody2D rb;
     private Animator animator;
+    private float rollCooldownTimer = 0f;
 
     public float rollSpeed = 4f;
     public float rollDuration = 1f;
+    public float rollCooldown = 5f;
     private float rollTimer = 0f;
     public bool isRolling = false;
 
@@ -21,17 +23,27 @@ public class PlayerCombat : MonoBehaviour
             Attack();
         } else if (Input.GetKeyDown(KeyCode.Q)){
             animator.SetTrigger("isAttack2");
-        } else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling){
+        } else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling && rollCooldownTimer <= 0f){
              if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
             {
-                animator.SetTrigger("isRoll");
-                isRolling = true;
+                StartRoll();
             } else {
-                animator.SetTrigger("isRoll");
-                isRolling = true;
+                StartRoll();
             }
             
         }
+        // Update roll cooldown timer
+        if (rollCooldownTimer > 0f)
+        {
+            rollCooldownTimer -= Time.deltaTime;
+        }
+        Debug.Log(rollCooldownTimer);
+    }
+
+    private void StartRoll(){
+        animator.SetTrigger("isRoll");
+        isRolling = true;
+        rollCooldownTimer = rollCooldown;
     }
 
     private void FixedUpdate(){
@@ -49,7 +61,7 @@ public class PlayerCombat : MonoBehaviour
      private void EndAttackAnimation()
     {
         isAttacking = false; // Reset the flag when the attack animation is finished
-        // Debug.Log("Attack animation ended. isAttacking set to false.");
+        Debug.Log("Attack animation ended. isAttacking set to false.");
     }
 
     private void Awake() {
