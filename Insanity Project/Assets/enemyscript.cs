@@ -59,7 +59,7 @@ public class enemyscript : MonoBehaviour
             spriteRenderer.flipX = false;
             AdjustColliderBox(false);
         } else {
-            ResetColliderBoxPosition();
+            
         }
 
     }
@@ -69,13 +69,6 @@ public class enemyscript : MonoBehaviour
             // Adjust offset based on facing direction
             float xOffset = facingLeft ? -originalXOffset : originalXOffset;
             colliderBox.offset = new Vector2(xOffset, colliderBox.offset.y);
-        }
-    }
-
-    // Method to reset collider box position to its original state
-    private void ResetColliderBoxPosition(){
-        if (colliderBox != null){
-            colliderBox.offset = new Vector2(originalXOffset, colliderBox.offset.y);
         }
     }
     

@@ -37,7 +37,7 @@ public class PlayerCombat : MonoBehaviour
         {
             rollCooldownTimer -= Time.deltaTime;
         }
-        Debug.Log(rollCooldownTimer);
+        // Debug.Log(rollCooldownTimer);
     }
 
     private void StartRoll(){
@@ -61,7 +61,7 @@ public class PlayerCombat : MonoBehaviour
      private void EndAttackAnimation()
     {
         isAttacking = false; // Reset the flag when the attack animation is finished
-        Debug.Log("Attack animation ended. isAttacking set to false.");
+        // Debug.Log("Attack animation ended. isAttacking set to false.");
     }
 
     private void Awake() {
@@ -88,8 +88,8 @@ public class PlayerCombat : MonoBehaviour
 
     rollTimer += Time.deltaTime;
 
-    Debug.Log("ForwardMovement : " + forwardMovement);
-    Debug.Log("RollTimer : " + rollTimer);
+    // Debug.Log("ForwardMovement : " + forwardMovement);
+    // Debug.Log("RollTimer : " + rollTimer);
 
     }
 
