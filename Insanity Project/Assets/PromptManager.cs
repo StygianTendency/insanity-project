@@ -8,10 +8,23 @@ public class PromptManager : MonoBehaviour
     public TMP_Text promptText;
     public float promptIntervalMin = 20f;
     public float promptIntervalMax = 60f;
-    public string promptMessage = "Do you accept my gift?";
     public float maxHPDecrease = 10f;
+    public int maxPrompts = 2; // Maximum number of prompts
+
+    // Prompt messages based on player's previous choice
+    private string[] acceptPrompts = {
+        "Do you accept my gift?",
+        "Do you truly have any choice in the matter?"
+    };
+    private string[] declinePrompts = {
+        "Are you sure?",
+        "Think carefully about your decision."
+    };
 
     private bool isPromptActive = false;
+    private bool isFirstPrompt = true; // Flag to track the first prompt
+    private bool lastResponse = false; // true if player accepted last time, false if declined
+    private int acceptedCount = 0; // Counter for the number of times the player accepted the gift
 
     // Reference to the Cinemachine Virtual Camera named "PlayerView"
     public CinemachineVirtualCamera playerViewCamera;
@@ -24,9 +37,52 @@ public class PromptManager : MonoBehaviour
 
     void ShowPrompt()
     {
+        // Check if the maximum number of prompts has been reached
+        if (acceptedCount >= maxPrompts)
+        {
+            // Stop prompting
+            CancelInvoke("ShowPrompt");
+            return;
+        }
+
+        // Determine the prompt message
+        string promptMessage = "";
+
+        if (isFirstPrompt)
+        {
+            promptMessage = "Do you accept His gift?";
+        }
+        else if (lastResponse)
+        {
+            if (promptText.text == acceptPrompts[1])
+            {
+                promptMessage = "No, you don't.";
+                StartCoroutine(AutoPressY());
+            }
+            else
+            {
+                promptMessage = acceptPrompts[1];
+            }
+        }
+        else
+        {
+            if (promptText.text == declinePrompts[1])
+            {
+                promptMessage = "No, you don't.";
+                StartCoroutine(AutoPressY());
+            }
+            else
+            {
+                promptMessage = declinePrompts[1];
+            }
+        }
+
         // Display the prompt message
         promptText.text = promptMessage;
         isPromptActive = true;
+
+        // Reset isFirstPrompt flag after the first prompt
+        isFirstPrompt = false;
     }
 
     void Update()
@@ -47,6 +103,12 @@ public class PromptManager : MonoBehaviour
 
     void AcceptGift()
     {
+        // Set last response to true (accepted)
+        lastResponse = true;
+
+        // Increase the accepted count
+        acceptedCount++;
+
         // Decrease player's max HP
         // Apply other effects as needed
         // Reset prompt
@@ -59,6 +121,9 @@ public class PromptManager : MonoBehaviour
 
     void DeclineGift()
     {
+        // Set last response to false (declined)
+        lastResponse = false;
+
         // Apply alternative effects for declining the gift
         // Reset prompt
         isPromptActive = false;
@@ -86,5 +151,14 @@ public class PromptManager : MonoBehaviour
         {
             Debug.LogError("PlayerView Camera is not assigned!");
         }
+    }
+
+    IEnumerator AutoPressY()
+    {
+        // Wait for a short duration before pressing Y
+        yield return new WaitForSeconds(1f);
+
+        // Press Y automatically
+        AcceptGift();
     }
 }
