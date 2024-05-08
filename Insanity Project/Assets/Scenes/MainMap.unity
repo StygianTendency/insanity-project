@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 309961977}
   - component: {fileID: 309961976}
   m_Layer: 6
-  m_Name: Player View
+  m_Name: PlayerView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -579,6 +580,23 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 8330f344441bd974c9a295feacc96d4d, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 1
 --- !u!1 &541038162
 GameObject:
   m_ObjectHideFlags: 0
@@ -83612,7 +83630,7 @@ MonoBehaviour:
     \u0337\u033E\u035D\u0360\u0340\u0315\u0306\u0342\u0300\u0302\u0341\u035D\u035D\u0307\u033A\u0331\u0324\u0329\u0316\u0330\u035C\u031F\u0353\u032CH\u0338\u030D\u030A\u0351\u030B\u0355\u032A\u0322\u031F\u0332\u0348\u033B\u031Fi\u0334\u0350\u031A\u0302\u030B\u030E\u035B\u0352\u0358\u0315\u0346\u031A\u0357\u0333\u031D\u032E\u0322\u0330\u034D\u034E\u0316s\u0336\u0306\u0352\u0344\u0351\u0324\u0317\u035C\u035A\u0317\u0328\u033C\u032A\u032B\u0324\u0331\u031E\u0329\u0332\u0316
     \u0337\u0306\u035D\u0305\u030A\u0314\u035D\u035B\u0341\u035B\u0346\u0344\u0314\u0331g\u0337\u0344\u0342\u035D\u0341\u030F\u0346\u0312\u0352\u0301\u0307\u030E\u0303\u0344\u034D\u0329\u0349\u035Ai\u0336\u0303\u0312\u0352\u0302\u0309\u0307\u0310\u031A\u0308\u0344\u0341\u031A\u0322\u0330\u032C\u035A\u0324\u0353\u0319\u0347\u0330\u032A\u0329\u0326\u0316\u0329\u0332\u0318\u0353f\u0335\u0357\u0331\u031D\u0349\u0355\u034E\u0316\u0326\u0321\u032D\u0333\u033B\u0316\u0320\u0356\u034D\u0322\u032At\u0335\u030A\u0324\u0355\u0359\u0354\u0323\u0332\u0347?\u0335\u034C\u034C\u030D\u031A\u0303\u0351\u035D\u034C\u033A\u0333\u031C\u032A\u0347\u034E\u0353\u0320"
   maxHPDecrease: 10
-  screenShakeIntensity: 0.5
+  playerViewCamera: {fileID: 0}
 --- !u!1 &1204395553
 GameObject:
   m_ObjectHideFlags: 3
@@ -83624,6 +83642,7 @@ GameObject:
   - component: {fileID: 1204395554}
   - component: {fileID: 1204395556}
   - component: {fileID: 1204395555}
+  - component: {fileID: 1204395557}
   m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
@@ -83701,6 +83720,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1204395557
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204395553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1316220779
 GameObject:
   m_ObjectHideFlags: 0
