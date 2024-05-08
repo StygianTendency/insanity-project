@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1723403256759835764}
   - component: {fileID: 7050212043536794088}
   - component: {fileID: 4542777176228256812}
+  - component: {fileID: 1566807618978149242}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Enemy
@@ -144,7 +145,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.020776317, y: -0.18604231}
@@ -198,3 +199,17 @@ MonoBehaviour:
   speed: 3
   attackDistance: 1.5
   animator: {fileID: 7050212043536794088}
+--- !u!114 &1566807618978149242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822393280156010356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f64773ba9f8e9340b9dec7eec403b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0

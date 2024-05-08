@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 134174296366929458}
   - component: {fileID: 2619160979110439494}
   - component: {fileID: 9025008530833591586}
+  - component: {fileID: 8944587963602171015}
   m_Layer: 0
   m_Name: SkeletonWarrior
   m_TagString: Enemy
@@ -144,7 +145,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.1749647, y: -0.17947403}
@@ -198,3 +199,17 @@ MonoBehaviour:
   speed: 3
   attackDistance: 1.5
   animator: {fileID: 2619160979110439494}
+--- !u!114 &8944587963602171015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4820818788398340935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f64773ba9f8e9340b9dec7eec403b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
