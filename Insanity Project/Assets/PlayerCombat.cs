@@ -11,7 +11,6 @@ public class PlayerCombat : MonoBehaviour
     public float rollSpeed = 4f;
     public float rollDuration = 1f;
     private float rollTimer = 0f;
-    // public float verticalMovement = 4;
     public bool isRolling = false;
 
     // Update is called once per frame
@@ -23,8 +22,15 @@ public class PlayerCombat : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Q)){
             animator.SetTrigger("isAttack2");
         } else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling){
-            animator.SetTrigger("isRoll");
-            isRolling = true;
+             if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
+            {
+                animator.SetTrigger("isRoll");
+                isRolling = true;
+            } else {
+                animator.SetTrigger("isRoll");
+                isRolling = true;
+            }
+            
         }
     }
 
