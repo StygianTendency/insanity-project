@@ -43,7 +43,7 @@ public class PlayerCombat : MonoBehaviour
      private void EndAttackAnimation()
     {
         isAttacking = false; // Reset the flag when the attack animation is finished
-        Debug.Log("Attack animation ended. isAttacking set to false.");
+        // Debug.Log("Attack animation ended. isAttacking set to false.");
     }
 
     private void Awake() {
