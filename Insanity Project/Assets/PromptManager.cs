@@ -73,10 +73,11 @@ public class PromptManager : MonoBehaviour
             CinemachineBasicMultiChannelPerlin noiseProfile = playerViewCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
             // Enable the noise profile
-            noiseProfile.m_AmplitudeGain = 1f;
+            noiseProfile.m_AmplitudeGain = 5f;
+            noiseProfile.m_FrequencyGain = 5f;
 
             // Wait for a short duration
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
 
             // Disable the noise profile after the shake
             noiseProfile.m_AmplitudeGain = 0f;
