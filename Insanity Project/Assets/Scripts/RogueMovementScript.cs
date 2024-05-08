@@ -9,6 +9,7 @@ public class RogueMovementScript : MonoBehaviour
 {
     //Movement Speed of the character
     private float moveSpeed = 5f;
+    private float moveSpeedVertical = .2f;
 
     //Input actiosn for character movement
     private RogueInputs rogueMovement;
@@ -89,13 +90,14 @@ public class RogueMovementScript : MonoBehaviour
 
     //Move character based on input
     private void rogueMove(){
-        // rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
 
         if(GetComponent<PlayerCombat>().isRolling){
-            GetComponent<PlayerCombat>().isRolling = false;
+            rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeedVertical);
+        } else {
+            rb.velocity = movement * moveSpeed;
         }
 
-        rb.velocity = movement * moveSpeed;
+        
     }
 
     //Called when a collision occurs
