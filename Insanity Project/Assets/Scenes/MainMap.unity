@@ -83516,7 +83516,7 @@ GameObject:
   - component: {fileID: 957866488}
   - component: {fileID: 957866487}
   - component: {fileID: 957866486}
-  - component: {fileID: 957866490}
+  - component: {fileID: 957866493}
   - component: {fileID: 957866492}
   - component: {fileID: 957866491}
   m_Layer: 5
@@ -83613,24 +83613,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &957866490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957866485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8883dc42555da549a583adbbae58bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptText: {fileID: 741469149}
-  promptIntervalMin: 5
-  promptIntervalMax: 7
-  maxHPDecrease: 10
-  maxPrompts: 2
-  playerViewCamera: {fileID: 309961976}
 --- !u!114 &957866491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83643,7 +83625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1123879abe50a4dbfb0c23d3e3a1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 2117528867}
   maxHealth: 100
   currentHealth: 0
 --- !u!114 &957866492
@@ -83661,6 +83643,24 @@ MonoBehaviour:
   attackRange: 100
   damageAmount: 5
   attackDuration: 1
+--- !u!114 &957866493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957866485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8883dc42555da549a583adbbae58bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: {fileID: 741469149}
+  promptIntervalMin: 5
+  promptIntervalMax: 7
+  maxHPDecrease: 10
+  maxPrompts: 2
+  playerViewCamera: {fileID: 309961976}
 --- !u!1 &1204395553
 GameObject:
   m_ObjectHideFlags: 3
