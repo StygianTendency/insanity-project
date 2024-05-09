@@ -10,7 +10,7 @@ public class enemyscript : MonoBehaviour
 {
     public float rotateSpeed = 0.0025f;
     public Transform target;
-    public float speed = 3f;
+    public float speed = 4f;
     public float attackDistance = .7f;
     public Animator animator;
     public BoxCollider2D colliderBox; // Reference to the BoxCollider2D component

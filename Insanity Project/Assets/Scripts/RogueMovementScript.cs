@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class RogueMovementScript : MonoBehaviour
 {
     //Movement Speed of the character
-    private float moveSpeed = 5f;
+    private float moveSpeed = 4f;
     private float moveSpeedVertical = .2f;
 
     //Input actiosn for character movement
@@ -113,10 +113,6 @@ public class RogueMovementScript : MonoBehaviour
         if(collision.gameObject.CompareTag("Chest")){
             isNearChest = false;
             ShowInteractMessage(false);
-        }
-        if (collision.tag == "Enemy") {
-           // other.GetComponent<Enemy.().TakeDamage(damage);
-           Debug.Log("Enemy hit");
         }
     }
     

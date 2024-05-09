@@ -1,63 +1,42 @@
 using UnityEngine;
 using System.Collections;
 
-public class SkeletonMeleeAttack : MonoBehaviour
+public class EnemiesAttack : MonoBehaviour
 {
-    public float attackRange = 12f; // Adjust as needed
-    public int damageAmount = 10; // Amount of damage to deal to enemies
-    public float attackDuration = 1f; // Duration of the attack in seconds
+    public float attackRange = .5f; // Adjust as needed for proximity check
+    public int damageAmount = 20; // Amount of damage to deal to player
+    public float attackCooldown = .9f; // Cooldown between attacks
     private bool isAttacking = false; // Flag to indicate if the skeleton is currently attacking
+    private GameObject player; // Reference to the player game object
 
-    void OnTriggerEnter2D(Collider2D other)
+    void Start()
     {
-        // Check if the collided object is the player
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Skeleton detected player in range!");
+        // Find the player game object using its tag "Player"
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
+    void Update()
+    {
+        // Check if the player is within attack range and the skeleton is not already attacking
+        if (Vector2.Distance(transform.position, player.transform.position) <= attackRange && !isAttacking)
+        {
             // Start the attack
-            StartCoroutine(PerformAttack(other.gameObject));
+            StartCoroutine(PerformAttack());
         }
     }
 
-    IEnumerator PerformAttack(GameObject player)
+    IEnumerator PerformAttack()
     {
         // Set the attacking flag to true
         isAttacking = true;
 
-        // Perform the attack animation or any other attack-related actions here
-        Debug.Log("Skeleton started attack animation!");
+        // Deal damage to the player
+        Debug.Log("Skeleton is attacking!");
+        player.GetComponent<HealthBar>().TakeDamage(damageAmount);
 
-        // Perform raycast for the duration of the attack
-        float timer = 0f;
-        while (timer < attackDuration)
-        {
-            // Perform raycast
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, attackRange);
+        // Wait for the attack cooldown before allowing another attack
+        yield return new WaitForSeconds(attackCooldown);
 
-            if (hit.collider != null)
-            {
-                // Check if the object hit by the raycast is the player
-                if (hit.collider.CompareTag("Player"))
-                {
-                    Debug.Log("Skeleton hit the player!");
-                    // Call a method on the player to apply damage
-                    hit.collider.GetComponent<HealthBar>().TakeDamage(damageAmount);
-                } else {
-                    Debug.Log("Raycast hit something, but it's not the player. Collider tag: " + hit.collider.tag);
-                }
-            }
-
-            // Increment timer
-            timer += Time.deltaTime;
-
-            // Wait for the next frame
-            yield return null;
-        }
-
-        // End the attack
-        Debug.Log("Skeleton ended attack!");
-        
         // Set the attacking flag to false
         isAttacking = false;
     }

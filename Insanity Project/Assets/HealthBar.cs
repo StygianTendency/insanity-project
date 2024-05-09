@@ -10,6 +10,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        UpdateHealthBar();
     }
 
     void Update(){
@@ -32,6 +33,17 @@ public class HealthBar : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         UpdateHealthBar();
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        // Handle death logic here, like game over or respawn
+        Debug.Log("Rogue died!");
     }
 
     public void Heal(float healingAmount){
