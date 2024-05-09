@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 public class HealthBar : MonoBehaviour
 {
     public Image healthBar;
@@ -18,6 +19,10 @@ public class HealthBar : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Space)){
             Heal(5);
+        }
+        if(currentHealth <= 0) {
+            SceneManager.LoadScene("GameOver");
+
         }
     }
 

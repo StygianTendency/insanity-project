@@ -32,6 +32,7 @@ public class PromptManager : MonoBehaviour
     void Start()
     {
         // Start prompting at random intervals
+        
         InvokeRepeating("ShowPrompt", Random.Range(promptIntervalMin, promptIntervalMax), Random.Range(promptIntervalMin, promptIntervalMax));
     }
 
@@ -114,10 +115,17 @@ public class PromptManager : MonoBehaviour
     if (meleeAttack != null)
     {
         // Increase damage by 20%
+        if(acceptedCount == 1) {
+
+        
         Debug.Log(meleeAttack.damageAmount);
         meleeAttack.damageAmount = (int)(meleeAttack.damageAmount * 1.2f);
         Debug.Log(meleeAttack.damageAmount);
-
+        }
+        if(acceptedCount == 2) {
+            meleeAttack.damageAmount = (int)(meleeAttack.damageAmount * 2.0f);
+            Debug.Log(meleeAttack.damageAmount);
+        }
     }
     else
     {
