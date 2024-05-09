@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1637767102338637103}
+  - component: {fileID: 1961863627331576649}
   - component: {fileID: 8361722630178155782}
   - component: {fileID: 5242531095776330771}
   - component: {fileID: 5038348437477502867}
   - component: {fileID: 7444439339254736453}
-  - component: {fileID: 1995397070700881602}
   - component: {fileID: 5232404381748486536}
   m_Layer: 0
   m_Name: Archer
@@ -37,6 +37,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1961863627331576649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6748607930218245229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfaeaa7191eb20b4d83f5eb7824e6136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 0.0025
+  target: {fileID: 0}
+  speed: 2
+  attackDistance: 0.5
+  animator: {fileID: 7444439339254736453}
+  colliderBox: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
+  attackRange: 0.1
+  damageAmount: 15
+  attackCooldown: 0.8
 --- !u!212 &8361722630178155782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,23 +205,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1995397070700881602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6748607930218245229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d250f4022e79f7f49b9d8689338f07a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 0.0025
-  target: {fileID: 0}
-  speed: 3
-  attackDistance: 1.5
-  animator: {fileID: 7444439339254736453}
 --- !u!114 &5232404381748486536
 MonoBehaviour:
   m_ObjectHideFlags: 0

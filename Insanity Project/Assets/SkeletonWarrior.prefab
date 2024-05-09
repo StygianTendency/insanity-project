@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8154494571731583047}
+  - component: {fileID: 5307634470770346548}
   - component: {fileID: 7995944455314408549}
   - component: {fileID: 245106892325492984}
   - component: {fileID: 6180252033299020427}
   - component: {fileID: 7936696137049784946}
-  - component: {fileID: 7167106142768098263}
   - component: {fileID: 1414767828111294732}
   m_Layer: 0
   m_Name: SkeletonWarrior
@@ -37,6 +37,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5307634470770346548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543256516272518667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8747d792312eb54eaa6b10218b9169e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 0.0025
+  target: {fileID: 0}
+  speed: 2.8
+  attackDistance: 0.2
+  animator: {fileID: 7936696137049784946}
+  colliderBox: {fileID: 0}
+  maxHealth: 800
+  currentHealth: 0
+  attackRange: 0.1
+  damageAmount: 10
+  attackCooldown: 1.2
 --- !u!212 &7995944455314408549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,23 +205,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7167106142768098263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5543256516272518667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d250f4022e79f7f49b9d8689338f07a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 0.0025
-  target: {fileID: 0}
-  speed: 3
-  attackDistance: 1
-  animator: {fileID: 7936696137049784946}
 --- !u!114 &1414767828111294732
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5088399901597318283}
+  - component: {fileID: 8996247779084909111}
   - component: {fileID: 1032110420848086795}
   - component: {fileID: 3499621402902427362}
   - component: {fileID: 5820630383939390522}
   - component: {fileID: 8835467132233541212}
-  - component: {fileID: 686542721107928993}
   - component: {fileID: 3735876937793100265}
   m_Layer: 0
   m_Name: Blob
@@ -37,6 +37,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8996247779084909111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173868453859562134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d04ad955f1a4a45844740fee69f48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 0.0025
+  target: {fileID: 0}
+  speed: 1
+  attackDistance: 0.1
+  animator: {fileID: 8835467132233541212}
+  colliderBox: {fileID: 0}
+  maxHealth: 200
+  currentHealth: 0
+  attackRange: 0.1
+  damageAmount: 20
+  attackCooldown: 2
 --- !u!212 &1032110420848086795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,23 +205,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &686542721107928993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173868453859562134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d250f4022e79f7f49b9d8689338f07a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 0.0025
-  target: {fileID: 0}
-  speed: 3
-  attackDistance: 0.75
-  animator: {fileID: 8835467132233541212}
 --- !u!114 &3735876937793100265
 MonoBehaviour:
   m_ObjectHideFlags: 0
