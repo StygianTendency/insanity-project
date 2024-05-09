@@ -3,7 +3,7 @@ using System.Collections;
 public class MeleeAttack : MonoBehaviour
 {
     public float attackRange = 100f; // Adjust as needed
-    public int damageAmount = 5; // Amount of damage to deal to enemies
+    public  int damageAmount = 5; // Amount of damage to deal to enemies
     public float attackDuration = 1f; // Duration of the attack in seconds
     private bool isAttacking = false; // Flag to indicate if the player is currently attacking
 
@@ -107,5 +107,11 @@ public class MeleeAttack : MonoBehaviour
         
         // Set the attacking flag to false
         isAttacking = false;
+    }
+    public int getDamage() {
+        return this.damageAmount;
+    }
+    public void setDamage(int damage) {
+        this.damageAmount = damage;
     }
 }

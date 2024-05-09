@@ -119,11 +119,11 @@ public class PromptManager : MonoBehaviour
 
         
         Debug.Log(meleeAttack.damageAmount);
-        meleeAttack.damageAmount = (int)(meleeAttack.damageAmount * 1.2f);
+        meleeAttack.setDamage(1000);
         Debug.Log(meleeAttack.damageAmount);
         }
         if(acceptedCount == 2) {
-            meleeAttack.damageAmount = (int)(meleeAttack.damageAmount * 2.0f);
+            meleeAttack.setDamage(10000);
             Debug.Log(meleeAttack.damageAmount);
         }
     }
