@@ -5,8 +5,8 @@ public class EnemySpawn : MonoBehaviour
 {
     public GameObject[] enemyPrefab; // Array of GameObjects to spawn
     public Transform spawnPoint; // The point where the GameObjects will be spawned
-    public int maxWaves = 5; // Maximum number of waves
-    public int initialSpawnCount = 6; // Number of objects to spawn in the first wave
+    [SerializeField] private int maxWaves; // Maximum number of waves
+    [SerializeField] private int initialSpawnCount; // Number of objects to spawn in the first wave
 
     private int currentWave = 0; // Counter for the current wave
 
@@ -24,7 +24,7 @@ public class EnemySpawn : MonoBehaviour
 
             for (int i = 0; i < spawnCount; i++)
             {
-                yield return new WaitForSeconds(Random.Range(2, 5)); // Wait for a random time between 2 to 5 seconds
+                yield return new WaitForSeconds(Random.Range(2, 3)); // Wait for a random time between 2 to 3 seconds
 
                 // Select a random GameObject from the array
                 int rand = Random.Range(0, enemyPrefab.Length);
