@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 245106892325492984}
   - component: {fileID: 6180252033299020427}
   - component: {fileID: 7936696137049784946}
-  - component: {fileID: 1414767828111294732}
   m_Layer: 0
   m_Name: SkeletonWarrior
   m_TagString: Enemy
@@ -205,17 +204,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1414767828111294732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5543256516272518667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f64773ba9f8e9340b9dec7eec403b28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0

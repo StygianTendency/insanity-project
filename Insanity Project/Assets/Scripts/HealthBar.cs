@@ -5,7 +5,7 @@ public class HealthBar : MonoBehaviour
 {
     public Image healthBar;
     public float maxHealth = 100f; // Set your rogue's max health here
-    private float currentHealth;
+    public float currentHealth;
 
     void Start()
     {

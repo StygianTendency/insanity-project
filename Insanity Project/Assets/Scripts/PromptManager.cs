@@ -102,22 +102,49 @@ public class PromptManager : MonoBehaviour
     }
 
     void AcceptGift()
+{
+    // Set last response to true (accepted)
+    lastResponse = true;
+
+    // Increase the accepted count
+    acceptedCount++;
+
+    // Access the MeleeAttack script to increase damage
+    MeleeAttack meleeAttack = GetComponent<MeleeAttack>();
+    if (meleeAttack != null)
     {
-        // Set last response to true (accepted)
-        lastResponse = true;
+        // Increase damage by 20%
+        Debug.Log(meleeAttack.damageAmount);
+        meleeAttack.damageAmount = (int)(meleeAttack.damageAmount * 1.2f);
+        Debug.Log(meleeAttack.damageAmount);
 
-        // Increase the accepted count
-        acceptedCount++;
-
-        // Decrease player's max HP
-        // Apply other effects as needed
-        // Reset prompt
-        isPromptActive = false;
-        promptText.text = "";
-
-        // Trigger screen shake
-        StartCoroutine(TriggerScreenShake());
     }
+    else
+    {
+        Debug.LogError("MeleeAttack script not found!");
+    }
+
+    // Access the HealthBar script to decrease health
+    HealthBar healthBar = GetComponent<HealthBar>();
+    if (healthBar != null)
+    {
+        // Decrease current health by 20%
+        Debug.Log(healthBar.currentHealth);
+        healthBar.currentHealth *= 0.8f;
+        Debug.Log(healthBar.currentHealth);
+    }
+    else
+    {
+        Debug.LogError("HealthBar script not found!");
+    }
+
+    // Reset prompt
+    isPromptActive = false;
+    promptText.text = "";
+
+    // Trigger screen shake
+    StartCoroutine(TriggerScreenShake());
+}
 
     void DeclineGift()
     {
